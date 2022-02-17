@@ -10,10 +10,10 @@ There are several parameters one can play around with. The run.py file is where 
 - D = 250         array dimensions DxD
 
 ### AF = i._init_(D,tmax,
-- t_r=15,                 Sets the length of the pulse i.e. the lagg time until at cell can be reexited\\
+- t_r=15,                 Sets the length of the pulse i.e. the lagg time until at cell can be reexited
 - v=0.9,                  probability of breaking a random link. not currently in use.
-- threshold=0.9,          Probability of killing a cell a value 0f .9 kills 90 percent of cells according to a normal distribution\\
-- limit=10,               boundary condition. a value of 10 means all conditional arguments of killing and destroying verticle links happen within this boundary
+- threshold=0.9,          Probability of killing a cell
+- limit=10,               boundary condition. a value of 10 means all conditional arguments of killing and destroying verticle links happen within this boundary (D-10 from x,y)
 - dys_link_prob=0.085,    probability of destroying a verticle link
 - dys_cell_prob=0.2,      Probability of a cell being set to dysfunctional
 - pulse_time = 50)        Sets the time inbetween pulses
