@@ -6,12 +6,11 @@ There are several parameters one can play around with. The run.py file is where 
 
 ## Example and parameter specification
 
-"""
 - tmax = 1000     says itself
 - D = 250         array dimensions DxD
 
 
-- AF = i._init_(D,tmax,\\
+- AF = i._init_(D,tmax,
 -             t_r=15,                 Sets the length of the pulse i.e. the lagg time until at cell can be reexited\\
 -             v=0.9,                  probability of breaking a random link. not currently in use.
 -             threshold=0.9,          Probability of killing a cell a value 0f .9 kills 90 percent of cells according to a normal distribution\\
@@ -19,13 +18,13 @@ There are several parameters one can play around with. The run.py file is where 
 -             dys_link_prob=0.085,    probability of destroying a verticle link
 -             dys_cell_prob=0.2,      Probability of a cell being set to dysfunctional
 -             pulse_time = 50)        Sets the time inbetween pulses
-- AF.init(break_links=True,             argument that passes whether links should be broken
+- AF.init(break_links=True,            argument that passes whether links should be broken
 -       treatment=True,               runs the simulation again including treatming i.e. randomized cell death
 -       skip_first_loop = False)      intended to skip the first simulation without cell ablation. triggering fibrillation is hard, so each simulation prior to treatment is stored in a array.npy so verious methods of cell ablation may be tried.
 
 - vid1 = vid.video()
 - vid1.side_by_side(fps=1.25)
-""
+
 
 ## Packages need
 - Numpy
