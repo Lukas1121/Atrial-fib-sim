@@ -16,13 +16,13 @@ class video:
         self.step = step
         self.t_r = t_r
         self.cells_killed = cells_killed
-        self.col_map = plt.cm.get_cmap('binary', 40)
+        self.col_map = plt.cm.get_cmap('Reds', 40)
         self.cells_killed = self.cells_killed
         if self.cells_killed == None:
             self.filename = 'before treatment'
             self.img_save_dir = 'temp'
         else:
-            self.filename = 'after treatment s'
+            self.filename = 'after treatment'
             self.img_save_dir = 'temp2'
 
 
@@ -37,7 +37,7 @@ class video:
                     else:
                         data[i, j] = entry[1]*10
                 else:
-                    data[i, j] = -10
+                    data[i, j] = 40
             plt.imshow(data, cmap=self.col_map)
             plt.title(self.filename)
             if os.path.isdir(self.img_save_dir) == False:
@@ -75,7 +75,9 @@ class video:
 
 
     def graph2vid(self, options='video', fpsrate=1, empty_dir_on_done=True): #turns a series of n pictures in directory into a video of the .avi type or a gif
+
         list1 = os.listdir(self.img_save_dir)
+
         img_array = []
 
         size = (800,600)
@@ -144,7 +146,6 @@ class video:
                 return 1
             frame_arr.append(frame)
             frame1_arr.append(frame1)
-            print(frame_arr[0].shape)
             if ret == True and ret1 == True:
                 h, w, c = frame_arr[-1].shape
                 h1, w1, c1 = frame1_arr[-1].shape

@@ -5,7 +5,7 @@ import random
 
 
 class _init_:
-    def __init__(self, D, tmax, dt=1, t_r=5, v=0.5, threshold=2, dys_cell_prob=0.05, limit=10, dys_link_prob=0.05):
+    def __init__(self, D, tmax, dt=1, t_r=5, v=0.5, threshold=2, dys_cell_prob=0.05, limit=10, dys_link_prob=0.05,pulse_time=100):
         self.dys_cell_prob = dys_cell_prob
         self.dys_link_prop = dys_link_prob
         N = np.frompyfunc(list, 0, 1)(np.empty((D, D), dtype=object))
@@ -16,6 +16,7 @@ class _init_:
         self.v = v
         self.threshold = threshold
         self.limit = limit
+        self.pulse_time = pulse_time
 
     def prob_dys_cell(self):
         r = np.random.uniform(0, 1)
@@ -142,7 +143,7 @@ class _init_:
             if break_links == True:
                 self.iterate_links()
             np.save('arrays.npy', self.N)
-            start = main_func.AF(self.N, self.tmax, self.dt, self.t_r, dys_link_prob=self.dys_link_prop)
+            start = main_func.AF(self.N, self.tmax, self.dt, self.t_r, dys_link_prob=self.dys_link_prop,pulse_time=self.pulse_time)
             print('Running first loop')
             start.main()
             vid1 = vid.video()
@@ -154,7 +155,7 @@ class _init_:
                 self.N = np.load('arrays.npy', allow_pickle=True)
             killed_cells = self.apply_dead_cells()
             start = main_func.AF(self.N, self.tmax, self.dt, self.t_r, dys_link_prob=self.dys_link_prop,
-                                 img_save_dir='temp2', killed_cells=killed_cells)
+                                 img_save_dir='temp2', killed_cells=killed_cells,pulse_time=self.pulse_time)
             start.main()
-            vid1 = vid.video()
+            vid1 = vid.video(cells_killed=killed_cells)
             vid1.graph2vid()
