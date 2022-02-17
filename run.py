@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, "modules")
 import __init__ as i
 import video_func as vid
 from datetime import datetime

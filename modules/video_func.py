@@ -89,6 +89,7 @@ class video:
                         for i in range(fpsrate + 3):
                             img_array.append(img)
             out = cv2.VideoWriter(self.filename + '.avi',cv2.VideoWriter_fourcc(*'DIVX'), 30, size)
+
             for i in range(len(img_array)):
                 out.write(img_array[i])
             out.release()
