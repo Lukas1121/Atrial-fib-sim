@@ -16,8 +16,7 @@ AF = i._init_(D,tmax,
               dys_cell_prob=0.07)
 AF.init(break_links=True,
         treatment=True,
-        skip_first_loop = True)
-
+        skip_first_loop = False)
 # vid1 = vid.video()
 # vid1.side_by_side(fps=1.75)
 

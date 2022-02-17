@@ -74,7 +74,7 @@ class video:
         plt.show()
 
 
-    def graph2vid(self, options='video', fpsrate=1, empty_dir_on_done=False): #turns a series of n pictures in directory into a video of the .avi type or a gif
+    def graph2vid(self, options='video', fpsrate=1, empty_dir_on_done=True): #turns a series of n pictures in directory into a video of the .avi type or a gif
         list1 = os.listdir(self.img_save_dir)
         img_array = []
 

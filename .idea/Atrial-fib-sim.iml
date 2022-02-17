@@ -2,7 +2,11 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+<<<<<<< HEAD
     <orderEntry type="inheritedJdk" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.9 (Atrial-fib-sim)" jdkType="Python SDK" />
+>>>>>>> 57866fba1737bbc609662cab02fb36700c9354d3
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
