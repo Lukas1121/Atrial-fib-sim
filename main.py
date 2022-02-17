@@ -17,7 +17,7 @@ def timeit(f):
     return timed
 
 class AF:
-    def __init__(self,N,tmax,dt,t_r,dys_link_prob,img_save_dir='temp',pulse_time=100):
+    def __init__(self,N,tmax,dt,t_r,dys_link_prob,img_save_dir='temp',pulse_time=100,killed_cells = None):
         self.N = self.update_broken_links(N)
         self.tmax = tmax
         self.dt = dt
@@ -26,6 +26,7 @@ class AF:
         self.dys_cell_prob = dys_link_prob
         self.img_save_dir = img_save_dir
         self.pulse_time = pulse_time
+        self.killed_cells = killed_cells
 
     def update_broken_links(self,N):
         broken_left_link_list = []
@@ -173,7 +174,7 @@ class AF:
             if step % self.pulse_time == 0:
                 self.pulse_start()
                 print('ts = %s'%step)
-            vid1 = vid.video(self.N, step=step)
+            vid1 = vid.video(self.N, step=step,cells_killed=self.killed_cells)
             vid1.anim_plot()
             if ts >= self.tmax:
                 vid1.anim_plot(tmax_break=True)

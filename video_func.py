@@ -15,14 +15,16 @@ class video:
             self.N = N
         self.step = step
         self.t_r = t_r
-        self.col_map = plt.cm.get_cmap('seismic', 40)
         self.cells_killed = cells_killed
+        self.col_map = plt.cm.get_cmap('binary', 40)
+        self.cells_killed = self.cells_killed
         if self.cells_killed == None:
             self.filename = 'before treatment'
             self.img_save_dir = 'temp'
         else:
-            self.filename = 'after treatment %s'%cells_killed
+            self.filename = 'after treatment s'
             self.img_save_dir = 'temp2'
+
 
     def anim_plot(self, tmax_break=False):
         if tmax_break != True:
@@ -38,7 +40,10 @@ class video:
                     data[i, j] = -10
             plt.imshow(data, cmap=self.col_map)
             plt.title(self.filename)
+            if os.path.isdir(self.img_save_dir) == False:
+                os.mkdir(self.img_save_dir)
             plt.savefig((self.img_save_dir + '/pic %s.png' % (self.step)))
+            plt.close()
             plt.clf()
         #     self.graph2vid_fluid(tmax_break=tmax_break, filename=title,imgdir=self.img_save_dir)
         if tmax_break == True:
@@ -69,7 +74,7 @@ class video:
         plt.show()
 
 
-    def graph2vid(self, options='video', fpsrate=1, empty_dir_on_done=True): #turns a series of n pictures in directory into a video of the .avi type or a gif
+    def graph2vid(self, options='video', fpsrate=1, empty_dir_on_done=False): #turns a series of n pictures in directory into a video of the .avi type or a gif
         list1 = os.listdir(self.img_save_dir)
         img_array = []
 

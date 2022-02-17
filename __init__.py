@@ -150,11 +150,11 @@ class _init_:
 
         if treatment or skip_first_loop == True:
             print('Running treatment')
-            self.N = np.load('arrays.npy', allow_pickle=True)
+            if skip_first_loop:
+                self.N = np.load('arrays.npy', allow_pickle=True)
             killed_cells = self.apply_dead_cells()
             start = main_func.AF(self.N, self.tmax, self.dt, self.t_r, dys_link_prob=self.dys_link_prop,
-                                 img_save_dir='temp2', )
+                                 img_save_dir='temp2', killed_cells=killed_cells)
             start.main()
             vid1 = vid.video()
-            # vid1.side_by_side(vid2_dir='')
             vid1.graph2vid()
