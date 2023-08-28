@@ -39,6 +39,3 @@ The code was reverse engineered and the theory based upon
 "Simple Model for Identifying Critical Regions in Atrial Fibrillation
 Kim Christensen, Kishan A. Manani, and Nicholas S. Peters
 Phys. Rev. Lett. 114, 028104 – Published 16 January 2015"
-
-### Collaboration
-This was my first large coding project and there is much work to be done on the optimization of run time. Reducing the amount of for loops etc and general quality of life improvements would be much appreciated. Please contact me with any suggestions towards the project
