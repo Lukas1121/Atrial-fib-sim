@@ -20,7 +20,7 @@ There are several parameters one can play around with. The run.py file is where 
 
 ### AF.init(
 - break_links=True,            argument that passes whether links should be broken
-- treatment=True,              runs the simulation again including treatming i.e. randomized cell death
+- treatment=True,              runs the simulation again including treatment i.e. randomized cell death
 - skip_first_loop = False)     intended to skip the first simulation without cell ablation. triggering fibrillation is hard, so each simulation prior to treatment is stored in a array.npy so verious methods of cell ablation may be tried.
 
 - vid1 = vid.video() 
